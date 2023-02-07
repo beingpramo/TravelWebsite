@@ -59,16 +59,19 @@
                     <h1>Travel <br> <span class="discover">Discover</span></h1>
                     <p>Explore the world with ease on our comprehensive travel and tourism website. Browse through a wide selection of destinations, find the best deals on flights, hotels, and vacation packages, and read up on local culture and activities to make the most of your trip. With user-friendly navigation and 24/7 customer support, planning your next adventure has never been easier</p>
                     <button class="form-btn" id="signup-btn" onclick="Openform()">Get Started</button>
+            <!-- FORM  -->
                     <div class="form-div">
                         <form action="/index.html" class="signup-form" id="signupForm" >
                             <h5>Sign up to get started.</h5>
 
                          <div class="row-1">
                             <div class="col-1">
-                            <input type="text" placeholder="first name" id="fname" onblur="validateFname()"> 
-                            <div class="error" id="fname-error"></div>
+                             <label  style="font-size: 0.7rem;" >First name:</label>
+                             <input type="text" placeholder="first name" id="fname" onblur="validateFname()"> 
+                             <div class="error" id="fname-error"></div>
                             </div>
                             <div class="col-2">
+                                <label  style="font-size: 0.7rem;" >Last name:</label>
                                 <input type="text" value="" placeholder="last name" id="lname" onblur="validateLname()">
                                 <div class="error" id="lname-error"></div>
                             </div>
@@ -76,21 +79,25 @@
                             
                         <div class="row-2">
                             <div class="col-1">
+                                <label  style="font-size: 0.7rem;" >Email:</label>
                                 <input type="email" value="" placeholder="email" id="email" onblur="validateEmail()"> 
                                 <div class="error" id="email-error"></div>
                             </div>
                             <div class="col-2">
-                                <input type="text" name="date-of-birth" id="date-of-birth" placeholder="Date Of Birth (DD/MM/YYYY)" onblur="validateDateofbirth()">  <br>
+                                <label for="date-of-birth" style="font-size: 0.7rem;" >Date of birth:</label>
+                                <input type="date" name="date-of-birth" id="date-of-birth" onblur="validateDateofbirth()"> 
                                 <div class="error" id="date-of-birth-error"></div>
                             </div>
                         </div>
 
                          <div class="row-3">
                             <div class="col-1">
+                                <label  style="font-size: 0.7rem;" >Password:</label>
                                 <input type="text" name="password" id="password" placeholder="Password" onblur="validatePassword()">
                                 <div class="error" id="password-error"></div>
                             </div>
                             <div class="col-2">
+                                <label for="password-confirm" style="font-size: 0.7rem;" >Confirm Password:</label>
                                 <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Password" onblur="validateConfirmpassword()">
                                 <div class="error" id="confirm-password-error"></div>
     

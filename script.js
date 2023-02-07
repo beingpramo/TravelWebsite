@@ -24,6 +24,7 @@ function closeSearch(){
 
 
 
+
 // Open and Close form 
 function Openform(){
     document.getElementById("signupForm").style.display="block";
@@ -51,18 +52,22 @@ const passwordErrorMessage = document.getElementById("password-error");
 const confirmpasswordErrorMessage = document.getElementById("confirm-password-error");
 
 
+
+//Database 
 let registrations =JSON.parse(localStorage.getItem("registrations")) || [];
 
-
+// Adding submit event to form 
 form.addEventListener("submit", e =>{
     e.preventDefault();
      validateForm();
 })
 
+// Email Validation Function 
 function isEmailValid(email){
     var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     return validRegex.test(String(email).toLocaleLowerCase());
 }
+
 
 function validateForm() {
 
@@ -81,11 +86,11 @@ function validateForm() {
         localStorage.setItem("registrations", JSON.stringify(registrations));
         alert("Thanks for signing up!")
       }
-    //   console.log(registrations)
+
 }
 
 function validateFname(){
-    if(fname.value.length === 0){
+    if(fname.value.length === 0 || fname.value.trim() === ''){
         fnameErrorMessage.innerHTML="First name is required";
       }else {
         fnameErrorMessage.innerHTML="";
@@ -93,7 +98,7 @@ function validateFname(){
 }
 
 function validateLname(){
-    if(lname.value.length === 0){
+    if(lname.value.length === 0 || fname.value.trim() === ''){
         lnameErrorMessage.innerHTML="Last name is required";
       }else{
         lnameErrorMessage.innerHTML="";
@@ -101,7 +106,7 @@ function validateLname(){
 }
 
 function validateEmail(){
-    if(email.value.length === 0){
+    if(email.value.length === 0 || email.value.trim() === ''){
         emailErrorMessage.innerHTML="Email is required";
       } else if(!isEmailValid(email.value)){
         emailErrorMessage.innerHTML="Enter a valid email.";
@@ -111,142 +116,38 @@ function validateEmail(){
 }
 
 function validateDateofbirth(){
+    var Birthday = new Date(dateofbirth.value);
+    var currentDate = new Date().toJSON().slice(0,10);
+    var myAge = ~~((Date.now(currentDate) - Birthday) / (31557600000));
+
     if(dateofbirth.value.length === 0){
         dateofbirthErrorMessage.innerHTML="Date of birth is required";
+      }else if(myAge <18){
+        dateofbirthErrorMessage.innerHTML="Date of birth must be at least 18 years old";
       }else{
         dateofbirthErrorMessage.innerHTML="";
       }
 }
 
 function validatePassword(){
-    if(password.value.length === 0){
+    var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    if(password.value.length === 0 || password.value.trim() === ''){
         passwordErrorMessage.innerHTML="Password is required";
+      }else if(password.value.length < 8){
+        passwordErrorMessage.innerHTML="Password must be at least 8 characters";
+      } else if(!passwordPattern.test(password.value)){
+            passwordErrorMessage.innerHTML="Password must contain atleast lowercase letter, one uppercase, one number, one special character";
       }else{
         passwordErrorMessage.innerHTML="";
       }
 }
+
 function validateConfirmpassword(){
-    if(confirmpassword.value.length === 0){
+    if(confirmpassword.value.length === 0 || confirmpassword.value.trim() === ''){
         confirmpasswordErrorMessage.innerHTML="Confirm password is required";
       }else{
         confirmpasswordErrorMessage.innerHTML="";
       }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // Input Validations 
-// function validateFname() {
-//     if (fname.value === "") {
-//         document.getElementById("fname-error").innerHTML = "First name is required";
-//     } else if (!/^[a-zA-Z]+$/.test(fname.value)) {
-//         errorMessage.innerHTML = "First name should contain only letters";
-//     } else {
-//         errorMessage.innerHTML = "";
-//     }
-// }
-
-// function validateLname() {
-//     if (fname.value === "") {
-//         document.getElementById("lname-error").innerHTML = "Last name is required";
-//     } else if (!/^[a-zA-Z]+$/.test(fname.value)) {
-//         errorMessage.innerHTML = "Last name should contain only letters";
-//     } else {
-//         errorMessage.innerHTML = "";
-//     }
-// }
-
-// function validateEmail() {
-//     if (fname.value === "") {
-//         document.getElementById("email-error").innerHTML = "Email is required";
-//     } 
-//     else {
-//         errorMessage.innerHTML = "";
-//     }
-// }
-
-// function validatePassword() {
-//     if (fname.value === "") {
-//         document.getElementById("password-error").innerHTML = "Password is required";
-//     } 
-//     else {
-//         errorMessage.innerHTML = "";
-//     }
-// }
-
-
-// function validateConfirmpassword() {
-//     if (fname.value === "") {
-//         document.getElementById("confirmpassword-error").innerHTML = "This field is required";
-//     } 
-//     else {
-//         errorMessage.innerHTML = "";
-//     }
-// }
-
-// // Validate the entire form 
-// function submitForm(){
-//     setTimeout(document.getElementById("submit-message").innerHTML="Thanks for singing up!", 3000);
-    
-// }
