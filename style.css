@@ -608,3 +608,82 @@ display: block;
         /* padding-right:10px; */
        }
 }
+
+
+/* Signup form  */
+.signup-form{
+   background-color: white;
+   margin-top:20px;
+   margin-bottom: 20px;
+   padding:20px;
+   border-radius: 5px;
+   text-align: center;
+   width: 600px;
+   display: none;
+}
+.signup-form input{
+   width:250px;
+   padding: 10px;
+   margin: 10px;
+   border-radius: 5px;
+   border-style: none;
+   font-size: 0.8rem;
+
+}
+.signup-form input:hover{
+     border: 1px solid black;   
+}
+.signup-form h5{
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    margin-top:2px;
+}
+.signup-form button{
+    padding:5px;
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 5px;
+    position: relative;
+    right:100px;
+}
+#close-form-btn{
+   background-color:transparent;
+   font-size:0.8rem;
+}
+#close-form-btn:hover{
+  background-color: #3C6255;
+}
+.error{
+    font-size: 0.7rem;
+    color:red;
+}
+.row-3{
+    position: relative;
+    bottom:30px;
+}
+.form-div h5{
+    margin-bottom:30px;
+    font-weight:600;
+}
+.form-btn{
+    margin-top:10px;
+}
+
+#search-icon{
+    width: 250px;
+    height:50px;
+    position:absolute;
+    top:70px;
+    right:20px;
+    z-index:2;
+    display: none;
+}
+#search-input{
+    position: absolute;
+    right:0px;
+    width:200px;
+    padding:5px;
+    height:20px;
+    border: 1px solid white;
+    text-decoration: none;
+}
